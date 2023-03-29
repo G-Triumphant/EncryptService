@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///  hash data 进行SM3处理
 /// @param plainData 原始数据
-- (NSData * _Nullable)sm3_hashWithPainData:(NSData *)plainData;
++ (NSString * _Nullable)sm3_hashWithPainData:(NSData *)plainData;
 
 @end
 

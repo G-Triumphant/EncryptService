@@ -4,7 +4,7 @@
 #import "sm4.h"
 #import "GKSm2Utils.h"
 #import "GKUtils.h"
-#import "sm3.h"
+#import "GKSm3Utils.h"
 
 @implementation GKEncryService
 
@@ -120,19 +120,9 @@
 
 #pragma mark --- SM3 ALGORITHM For hash（key1 + data1） ---
 
-- (NSData *)sm3_hashWithPainData:(NSData *)plainData {
-    if (plainData == nil) {
-        NSLog(@"got an empty input!");
-        return plainData;
-    }
-    int plainLen = (int)plainData.length;
-    unsigned char plainInChar[plainLen];
-    memcpy(plainInChar, plainData.bytes, plainLen);
-     
-    int outputLen = 32;
-    unsigned char output[outputLen];
-    sm3(plainInChar, plainLen, output);
-    return [NSData dataWithBytes:output length:outputLen];
++ (NSString *)sm3_hashWithPainData:(NSData *)plainData {
+    return [GKSm3Utils hashWithData:plainData];
 }
+
 
 @end
